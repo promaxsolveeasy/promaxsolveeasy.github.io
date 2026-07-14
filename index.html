@@ -33,7 +33,7 @@
   </style>
 </helmet>
 
-<div style="--navy-950:#060d1a; --navy-900:#0a1628; --navy-800:#0f2038; --navy-700:#132743; --navy-600:#1b3a5c; --gold:#d4af37; --gold-light:#f0d271; --teal:#2dd4bf; --teal-light:#7ee8dc; --ink:#eef2f7; --muted:#93a2b8; --muted-2:#66788f; --card-bg:linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015)); --border:rgba(255,255,255,0.09); font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif; background:var(--navy-950); color:var(--ink); line-height:1.6; overflow-x:hidden; position:relative;">
+<div dir="{{ dir }}" style="--navy-950:#060d1a; --navy-900:#0a1628; --navy-800:#0f2038; --navy-700:#132743; --navy-600:#1b3a5c; --gold:#d4af37; --gold-light:#f0d271; --teal:#2dd4bf; --teal-light:#7ee8dc; --ink:#eef2f7; --muted:#93a2b8; --muted-2:#66788f; --card-bg:linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015)); --border:rgba(255,255,255,0.09); font-family:'Segoe UI', Tahoma, Arial, sans-serif; background:var(--navy-950); color:var(--ink); line-height:1.6; overflow-x:hidden; position:relative;">
 
   <div style="position:fixed; inset:0; z-index:0; pointer-events:none; background-image:linear-gradient(rgba(45,212,191,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(45,212,191,0.05) 1px, transparent 1px); background-size:46px 46px; mask-image:radial-gradient(ellipse 70% 60% at 50% 0%, black 40%, transparent 100%);"></div>
   <div style="position:fixed; border-radius:50%; filter:blur(90px); opacity:0.35; z-index:0; pointer-events:none; width:520px; height:520px; background:var(--gold); top:-180px; right:-150px; animation:float1 16s ease-in-out infinite;"></div>
@@ -46,39 +46,42 @@
         <div><b style="background:linear-gradient(100deg, var(--gold-light), var(--teal-light)); -webkit-background-clip:text; background-clip:text; color:transparent;">PromaxSolveEasy</b></div>
       </div>
       <ul style="list-style:none; display:flex; gap:30px; flex-wrap:wrap; margin:0; padding:0;">
-        <li><a href="#solutions" style="font-size:0.92rem; color:var(--muted); transition:color .2s;" style-hover="{{ navLinkHover }}">Solutions</a></li>
-        <li><a href="#heritage" style="font-size:0.92rem; color:var(--muted); transition:color .2s;" style-hover="{{ navLinkHover }}">About</a></li>
-        <li><a href="#contact" style="font-size:0.92rem; color:var(--muted); transition:color .2s;" style-hover="{{ navLinkHover }}">Contact</a></li>
+        <li><a href="#solutions" style="font-size:0.92rem; color:var(--muted); transition:color .2s;" style-hover="{{ navLinkHover }}">{{ i.nav_solutions }}</a></li>
+        <li><a href="#heritage" style="font-size:0.92rem; color:var(--muted); transition:color .2s;" style-hover="{{ navLinkHover }}">{{ i.nav_about }}</a></li>
+        <li><a href="#contact" style="font-size:0.92rem; color:var(--muted); transition:color .2s;" style-hover="{{ navLinkHover }}">{{ i.nav_contact }}</a></li>
       </ul>
-      <a href="#contact" style="padding:9px 20px; border-radius:100px; font-size:0.88rem; font-weight:600; background:linear-gradient(135deg, var(--gold), var(--gold-light)); color:var(--navy-950);">Talk to Us</a>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <button onClick="{{ toggleLang }}" style="cursor:pointer; padding:7px 14px; border-radius:100px; font-size:0.8rem; font-weight:700; background:rgba(255,255,255,0.04); border:1px solid var(--border); color:var(--muted);" style-hover="{{ langBtnHover }}">{{ langBtnLabel }}</button>
+        <a href="#contact" style="padding:9px 20px; border-radius:100px; font-size:0.88rem; font-weight:600; background:linear-gradient(135deg, var(--gold), var(--gold-light)); color:var(--navy-950);">{{ i.nav_cta }}</a>
+      </div>
     </nav>
   </header>
 
   <section style="position:relative; z-index:1; padding:96px 24px 60px; text-align:center;">
     <div style="display:inline-flex; align-items:center; gap:8px; font-size:0.78rem; letter-spacing:1.6px; text-transform:uppercase; color:var(--teal-light); border:1px solid rgba(45,212,191,0.35); padding:7px 16px; border-radius:100px; background:rgba(45,212,191,0.06); margin-bottom:26px;">
-      <span style="width:6px; height:6px; border-radius:50%; background:var(--teal); animation:pulse-dot 1.8s infinite; display:inline-block;"></span> Headquartered in Abu Dhabi, United Arab Emirates
+      <span style="width:6px; height:6px; border-radius:50%; background:var(--teal); animation:pulse-dot 1.8s infinite; display:inline-block;"></span> {{ i.hero_eyebrow }}
     </div>
-    <h1 style="font-size:clamp(2.1rem, 5vw, 3.6rem); font-weight:800; letter-spacing:-1px; max-width:900px; margin:0 auto 22px; line-height:1.15;">Country-scale infrastructure, energy &amp; <span style="background:linear-gradient(100deg, var(--gold-light), var(--teal-light)); -webkit-background-clip:text; background-clip:text; color:transparent;">financial technology</span>, engineered as one platform</h1>
-    <p style="max-width:620px; margin:0 auto 38px; color:var(--muted); font-size:1.06rem;">Backed by a global capital network and deep energy &amp; technology engineering expertise, we deliver seven critical infrastructure verticals at national scale — from the UAE to the world.</p>
+    <h1 style="font-size:clamp(2.1rem, 5vw, 3.6rem); font-weight:800; letter-spacing:-1px; max-width:900px; margin:0 auto 22px; line-height:1.15;">{{ i.hero_h1_pre }} <span style="background:linear-gradient(100deg, var(--gold-light), var(--teal-light)); -webkit-background-clip:text; background-clip:text; color:transparent;">{{ i.hero_h1_accent }}</span>{{ i.hero_h1_post }}</h1>
+    <p style="max-width:620px; margin:0 auto 38px; color:var(--muted); font-size:1.06rem;">{{ i.hero_sub }}</p>
     <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:64px;">
-      <a href="#solutions" style="padding:13px 28px; border-radius:100px; font-weight:600; font-size:0.95rem; display:inline-block; background:linear-gradient(135deg, var(--gold), var(--gold-light)); color:var(--navy-950); box-shadow:0 8px 30px rgba(212,175,55,0.25);">Explore Our Verticals</a>
-      <a href="#contact" style="padding:13px 28px; border-radius:100px; font-weight:600; font-size:0.95rem; display:inline-block; border:1px solid var(--border); color:var(--ink); background:rgba(255,255,255,0.03);">Partner With Us</a>
+      <a href="#solutions" style="padding:13px 28px; border-radius:100px; font-weight:600; font-size:0.95rem; display:inline-block; background:linear-gradient(135deg, var(--gold), var(--gold-light)); color:var(--navy-950); box-shadow:0 8px 30px rgba(212,175,55,0.25);">{{ i.hero_cta_primary }}</a>
+      <a href="#contact" style="padding:13px 28px; border-radius:100px; font-weight:600; font-size:0.95rem; display:inline-block; border:1px solid var(--border); color:var(--ink); background:rgba(255,255,255,0.03);">{{ i.hero_cta_ghost }}</a>
     </div>
 
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); max-width:980px; margin:0 auto; border:1px solid var(--border); border-radius:18px; overflow:hidden; background:var(--card-bg);">
-      <div style="padding:26px 14px; text-align:center; border-right:1px solid var(--border);"><h3 style="font-size:1.6rem; color:var(--gold-light); font-weight:800; margin:0;">$15T+</h3><p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">Sovereign asset network access</p></div>
-      <div style="padding:26px 14px; text-align:center; border-right:1px solid var(--border);"><h3 style="font-size:1.6rem; color:var(--gold-light); font-weight:800; margin:0;">50+ yrs</h3><p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">Combined renewable energy experience</p></div>
-      <div style="padding:26px 14px; text-align:center; border-right:1px solid var(--border);"><h3 style="font-size:1.6rem; color:var(--gold-light); font-weight:800; margin:0;">10M+</h3><p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">Smart devices &amp; meters deployed</p></div>
-      <div style="padding:26px 14px; text-align:center;"><h3 style="font-size:1.6rem; color:var(--gold-light); font-weight:800; margin:0;">7</h3><p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">Integrated infrastructure verticals</p></div>
+      <div style="padding:26px 14px; text-align:center; border-right:1px solid var(--border);"><h3 style="font-size:1.6rem; color:var(--gold-light); font-weight:800; margin:0;">$15T+</h3><p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">{{ i.stat1_label }}</p></div>
+      <div style="padding:26px 14px; text-align:center; border-right:1px solid var(--border);"><h3 style="font-size:1.6rem; color:var(--gold-light); font-weight:800; margin:0;">50+</h3><p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">{{ i.stat2_label }}</p></div>
+      <div style="padding:26px 14px; text-align:center; border-right:1px solid var(--border);"><h3 style="font-size:1.6rem; color:var(--gold-light); font-weight:800; margin:0;">10M+</h3><p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">{{ i.stat3_label }}</p></div>
+      <div style="padding:26px 14px; text-align:center;"><h3 style="font-size:1.6rem; color:var(--gold-light); font-weight:800; margin:0;">7</h3><p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">{{ i.stat4_label }}</p></div>
     </div>
   </section>
 
   <section id="solutions" style="position:relative; z-index:1; padding:90px 24px;">
     <div ref="{{ head1Ref }}" style="{{ head1Style }}">
       <div style="text-align:center; max-width:680px; margin:0 auto 56px;">
-        <div style="color:var(--teal-light); font-size:0.8rem; letter-spacing:1.6px; text-transform:uppercase; font-weight:700;">What We Build</div>
-        <h2 style="font-size:clamp(1.7rem,3.4vw,2.4rem); margin:12px 0 14px; font-weight:800; letter-spacing:-0.5px;">Seven verticals. One integrated infrastructure stack.</h2>
-        <p style="color:var(--muted); font-size:1rem;">Each vertical is built and operated by our in-house infrastructure, capital and technology teams.</p>
+        <div style="color:var(--teal-light); font-size:0.8rem; letter-spacing:1.6px; text-transform:uppercase; font-weight:700;">{{ i.sol_tag }}</div>
+        <h2 style="font-size:clamp(1.7rem,3.4vw,2.4rem); margin:12px 0 14px; font-weight:800; letter-spacing:-0.5px;">{{ i.sol_h2 }}</h2>
+        <p style="color:var(--muted); font-size:1rem;">{{ i.sol_p }}</p>
       </div>
     </div>
 
@@ -86,7 +89,7 @@
 
       <div ref="{{ c1Ref }}" style="{{ c1Style }}">
         <div style="background:var(--card-bg); border:1px solid var(--border); border-radius:20px; padding:30px 26px; transition:transform .25s, border-color .25s; position:relative; overflow:hidden;" style-hover="{{ cardHover }}">
-          <div style="position:absolute; top:22px; right:26px; font-size:0.75rem; color:var(--muted-2); font-weight:700; letter-spacing:1px;">01</div>
+          <div style="position:absolute; top:22px; {{ numSide }}:26px; font-size:0.75rem; color:var(--muted-2); font-weight:700; letter-spacing:1px;">01</div>
           <svg style="width:74px; height:74px; margin-bottom:22px; display:block;" viewBox="0 0 100 100">
             <rect x="30" y="14" width="14" height="8" rx="2" fill="var(--gold-light)"/>
             <rect x="20" y="22" width="60" height="64" rx="10" fill="none" stroke="var(--gold-light)" stroke-width="4"/>
@@ -100,14 +103,14 @@
             </linearGradient>
             <polygon points="54,38 42,60 50,60 46,74 62,50 53,50" fill="var(--gold)" style="animation:flash 2.6s ease-in-out infinite;"/>
           </svg>
-          <h3 style="font-size:1.15rem; margin-bottom:10px; font-weight:700;">Energy &amp; Battery Storage</h3>
-          <p style="color:var(--muted); font-size:0.92rem;">Utility-scale battery storage, renewable integration and grid-balancing systems for national energy resilience.</p>
+          <h3 style="font-size:1.15rem; margin-bottom:10px; font-weight:700;">{{ i.card1_title }}</h3>
+          <p style="color:var(--muted); font-size:0.92rem;">{{ i.card1_desc }}</p>
         </div>
       </div>
 
       <div ref="{{ c2Ref }}" style="{{ c2Style }}">
         <div style="background:var(--card-bg); border:1px solid var(--border); border-radius:20px; padding:30px 26px; transition:transform .25s, border-color .25s; position:relative; overflow:hidden;" style-hover="{{ cardHover }}">
-          <div style="position:absolute; top:22px; right:26px; font-size:0.75rem; color:var(--muted-2); font-weight:700; letter-spacing:1px;">02</div>
+          <div style="position:absolute; top:22px; {{ numSide }}:26px; font-size:0.75rem; color:var(--muted-2); font-weight:700; letter-spacing:1px;">02</div>
           <svg style="width:74px; height:74px; margin-bottom:22px; display:block;" viewBox="0 0 100 100">
             <circle cx="50" cy="55" r="30" fill="none" stroke="var(--teal)" stroke-width="4"/>
             <circle cx="50" cy="55" r="30" fill="none" stroke="var(--teal-light)" stroke-width="2" style="animation:ringpulse 2.4s ease-out infinite; transform-origin:center;"/>
@@ -116,14 +119,14 @@
             <circle cx="50" cy="62" r="4" fill="var(--gold-light)"/>
             <rect x="42" y="16" width="16" height="10" rx="2" fill="var(--teal-light)"/>
           </svg>
-          <h3 style="font-size:1.15rem; margin-bottom:10px; font-weight:700;">Smart Meters &amp; Software</h3>
-          <p style="color:var(--muted); font-size:0.92rem;">AMI rollouts, meter data management, consumer indexing and real-time analytics platforms for utilities.</p>
+          <h3 style="font-size:1.15rem; margin-bottom:10px; font-weight:700;">{{ i.card2_title }}</h3>
+          <p style="color:var(--muted); font-size:0.92rem;">{{ i.card2_desc }}</p>
         </div>
       </div>
 
       <div ref="{{ c3Ref }}" style="{{ c3Style }}">
         <div style="background:var(--card-bg); border:1px solid var(--border); border-radius:20px; padding:30px 26px; transition:transform .25s, border-color .25s; position:relative; overflow:hidden;" style-hover="{{ cardHover }}">
-          <div style="position:absolute; top:22px; right:26px; font-size:0.75rem; color:var(--muted-2); font-weight:700; letter-spacing:1px;">03</div>
+          <div style="position:absolute; top:22px; {{ numSide }}:26px; font-size:0.75rem; color:var(--muted-2); font-weight:700; letter-spacing:1px;">03</div>
           <svg style="width:74px; height:74px; margin-bottom:22px; display:block;" viewBox="0 0 100 100">
             <line x1="26" y1="30" x2="50" y2="55" stroke="var(--teal)" stroke-width="2" style="stroke-dasharray:6 5; animation:dashmove 2.4s linear infinite;"/>
             <line x1="74" y1="28" x2="50" y2="55" stroke="var(--teal)" stroke-width="2" style="stroke-dasharray:6 5; animation:dashmove 2.4s linear infinite;"/>
@@ -135,14 +138,14 @@
             <circle cx="26" cy="78" r="6" fill="var(--teal-light)" style="animation:nodepulse 2.2s ease-in-out infinite; animation-delay:1.2s; transform-origin:center;"/>
             <circle cx="76" cy="76" r="6" fill="var(--teal-light)" style="animation:nodepulse 2.2s ease-in-out infinite; animation-delay:.4s; transform-origin:center;"/>
           </svg>
-          <h3 style="font-size:1.15rem; margin-bottom:10px; font-weight:700;">Workforce &amp; Ticketing Systems</h3>
-          <p style="color:var(--muted); font-size:0.92rem;">Field-force scheduling, dispatch and ticket-resolution platforms built to manage country-scale infrastructure teams.</p>
+          <h3 style="font-size:1.15rem; margin-bottom:10px; font-weight:700;">{{ i.card3_title }}</h3>
+          <p style="color:var(--muted); font-size:0.92rem;">{{ i.card3_desc }}</p>
         </div>
       </div>
 
       <div ref="{{ c4Ref }}" style="{{ c4Style }}">
         <div style="background:var(--card-bg); border:1px solid var(--border); border-radius:20px; padding:30px 26px; transition:transform .25s, border-color .25s; position:relative; overflow:hidden;" style-hover="{{ cardHover }}">
-          <div style="position:absolute; top:22px; right:26px; font-size:0.75rem; color:var(--muted-2); font-weight:700; letter-spacing:1px;">04</div>
+          <div style="position:absolute; top:22px; {{ numSide }}:26px; font-size:0.75rem; color:var(--muted-2); font-weight:700; letter-spacing:1px;">04</div>
           <svg style="width:74px; height:74px; margin-bottom:22px; display:block;" viewBox="0 0 100 100">
             <g style="animation:bob 2.4s ease-in-out infinite; transform-origin:center;">
               <polygon points="35,55 65,55 58,66 42,66" fill="var(--gold-light)"/>
@@ -152,14 +155,14 @@
             <path d="M14 74 Q 27 66 40 74 T 66 74 T 92 74 V 90 H 14 Z" fill="var(--teal)" opacity="0.55" style="animation:wavemove 5s ease-in-out infinite alternate;"/>
             <path d="M8 82 Q 21 74 34 82 T 60 82 T 96 82 V 92 H 8 Z" fill="var(--teal-light)" opacity="0.35" style="animation:wavemove 5s ease-in-out infinite alternate;"/>
           </svg>
-          <h3 style="font-size:1.15rem; margin-bottom:10px; font-weight:700;">Fishery, Ports &amp; Logistics</h3>
-          <p style="color:var(--muted); font-size:0.92rem;">Port operations, fleet &amp; catch management, and maritime logistics tooling for coastal and inland waterway economies.</p>
+          <h3 style="font-size:1.15rem; margin-bottom:10px; font-weight:700;">{{ i.card4_title }}</h3>
+          <p style="color:var(--muted); font-size:0.92rem;">{{ i.card4_desc }}</p>
         </div>
       </div>
 
       <div ref="{{ c5Ref }}" style="{{ c5Style }}">
         <div style="background:var(--card-bg); border:1px solid var(--border); border-radius:20px; padding:30px 26px; transition:transform .25s, border-color .25s; position:relative; overflow:hidden;" style-hover="{{ cardHover }}">
-          <div style="position:absolute; top:22px; right:26px; font-size:0.75rem; color:var(--muted-2); font-weight:700; letter-spacing:1px;">05</div>
+          <div style="position:absolute; top:22px; {{ numSide }}:26px; font-size:0.75rem; color:var(--muted-2); font-weight:700; letter-spacing:1px;">05</div>
           <svg style="width:74px; height:74px; margin-bottom:22px; display:block;" viewBox="0 0 100 100">
             <polygon points="50,16 74,40 62,80 38,80 26,40" fill="none" stroke="var(--gold-light)" stroke-width="4"/>
             <polygon points="50,16 62,80 38,80" fill="var(--teal-light)" style="animation:shine 2.6s ease-in-out infinite;"/>
@@ -168,14 +171,14 @@
               <rect x="47" y="14" width="6" height="20" fill="var(--gold)"/>
             </g>
           </svg>
-          <h3 style="font-size:1.15rem; margin-bottom:10px; font-weight:700;">Mining &amp; Rare Earth Minerals</h3>
-          <p style="color:var(--muted); font-size:0.92rem;">Exploration-to-export infrastructure, extraction technology partnerships and supply-chain financing for critical minerals.</p>
+          <h3 style="font-size:1.15rem; margin-bottom:10px; font-weight:700;">{{ i.card5_title }}</h3>
+          <p style="color:var(--muted); font-size:0.92rem;">{{ i.card5_desc }}</p>
         </div>
       </div>
 
       <div ref="{{ c6Ref }}" style="{{ c6Style }}">
         <div style="background:var(--card-bg); border:1px solid var(--border); border-radius:20px; padding:30px 26px; transition:transform .25s, border-color .25s; position:relative; overflow:hidden;" style-hover="{{ cardHover }}">
-          <div style="position:absolute; top:22px; right:26px; font-size:0.75rem; color:var(--muted-2); font-weight:700; letter-spacing:1px;">06</div>
+          <div style="position:absolute; top:22px; {{ numSide }}:26px; font-size:0.75rem; color:var(--muted-2); font-weight:700; letter-spacing:1px;">06</div>
           <svg style="width:74px; height:74px; margin-bottom:22px; display:block;" viewBox="0 0 100 100">
             <g style="animation:cuberot 6s linear infinite; transform-origin:50px 55px;">
               <polygon points="50,20 78,35 78,65 50,80 22,65 22,35" fill="none" stroke="var(--teal)" stroke-width="3"/>
@@ -187,14 +190,14 @@
             <circle cx="20" cy="20" r="2.5" fill="var(--gold-light)" style="animation:linkfade 2s ease-in-out infinite; animation-delay:.3s;"/>
             <circle cx="82" cy="18" r="2.5" fill="var(--teal-light)" style="animation:linkfade 2s ease-in-out infinite; animation-delay:.6s;"/>
           </svg>
-          <h3 style="font-size:1.15rem; margin-bottom:10px; font-weight:700;">Real World Asset Tokenization</h3>
-          <p style="color:var(--muted); font-size:0.92rem;">Blockchain-based structuring and issuance of tokenized real estate, commodities and infrastructure assets.</p>
+          <h3 style="font-size:1.15rem; margin-bottom:10px; font-weight:700;">{{ i.card6_title }}</h3>
+          <p style="color:var(--muted); font-size:0.92rem;">{{ i.card6_desc }}</p>
         </div>
       </div>
 
       <div ref="{{ c7Ref }}" style="{{ c7Style }}">
         <div style="background:var(--card-bg); border:1px solid var(--border); border-radius:20px; padding:30px 26px; transition:transform .25s, border-color .25s; position:relative; overflow:hidden;" style-hover="{{ cardHover }}">
-          <div style="position:absolute; top:22px; right:26px; font-size:0.75rem; color:var(--muted-2); font-weight:700; letter-spacing:1px;">07</div>
+          <div style="position:absolute; top:22px; {{ numSide }}:26px; font-size:0.75rem; color:var(--muted-2); font-weight:700; letter-spacing:1px;">07</div>
           <svg style="width:74px; height:74px; margin-bottom:22px; display:block;" viewBox="0 0 100 100">
             <polygon points="50,16 84,34 16,34" fill="var(--gold-light)"/>
             <rect x="20" y="38" width="6" height="34" fill="var(--teal)" style="animation:growbar 2.6s ease-in-out infinite; transform-origin:bottom;"/>
@@ -205,8 +208,8 @@
             <rect x="16" y="76" width="68" height="6" fill="var(--gold-light)"/>
             <circle cx="50" cy="20" r="6" fill="var(--gold)" style="animation:coindrop 2.2s ease-in infinite;"/>
           </svg>
-          <h3 style="font-size:1.15rem; margin-bottom:10px; font-weight:700;">Banking Solutions</h3>
-          <p style="color:var(--muted); font-size:0.92rem;">Core banking, digital payments and embedded-finance infrastructure for underserved and emerging markets.</p>
+          <h3 style="font-size:1.15rem; margin-bottom:10px; font-weight:700;">{{ i.card7_title }}</h3>
+          <p style="color:var(--muted); font-size:0.92rem;">{{ i.card7_desc }}</p>
         </div>
       </div>
 
@@ -216,22 +219,22 @@
   <section id="heritage" style="position:relative; z-index:1; padding:90px 24px;">
     <div ref="{{ head2Ref }}" style="{{ head2Style }}">
       <div style="text-align:center; max-width:680px; margin:0 auto 56px;">
-        <div style="color:var(--teal-light); font-size:0.8rem; letter-spacing:1.6px; text-transform:uppercase; font-weight:700;">Why PromaxSolveEasy</div>
-        <h2 style="font-size:clamp(1.7rem,3.4vw,2.4rem); margin:12px 0 14px; font-weight:800; letter-spacing:-0.5px;">One company. Global reach, ground-level execution.</h2>
-        <p style="color:var(--muted); font-size:1rem;">Sovereign-scale capital and global infrastructure relationships, paired with hands-on energy and software engineering — under one roof.</p>
+        <div style="color:var(--teal-light); font-size:0.8rem; letter-spacing:1.6px; text-transform:uppercase; font-weight:700;">{{ i.her_tag }}</div>
+        <h2 style="font-size:clamp(1.7rem,3.4vw,2.4rem); margin:12px 0 14px; font-weight:800; letter-spacing:-0.5px;">{{ i.her_h2 }}</h2>
+        <p style="color:var(--muted); font-size:1rem;">{{ i.her_p }}</p>
       </div>
     </div>
 
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:40px; max-width:1180px; margin:0 auto;">
       <div ref="{{ h1Ref }}" style="{{ h1Style }}">
-        <div style="display:inline-flex; gap:10px; align-items:center; border:1px solid var(--border); padding:8px 14px; border-radius:100px; font-size:0.8rem; color:var(--muted); margin-bottom:20px;">🏛️ Global Capital &amp; Infrastructure</div>
-        <h3 style="font-size:1.1rem; color:var(--gold-light); margin-bottom:10px;">Global capital &amp; infrastructure network</h3>
-        <p style="color:var(--muted); font-size:0.95rem; margin-bottom:18px;">Access to sovereign asset relationships, a 54+ location worldwide network, and 50+ years of combined experience across energy, agriculture &amp; fisheries, logistics, security and capital markets.</p>
+        <div style="display:inline-flex; gap:10px; align-items:center; border:1px solid var(--border); padding:8px 14px; border-radius:100px; font-size:0.8rem; color:var(--muted); margin-bottom:20px;">🏛️ {{ i.her1_badge }}</div>
+        <h3 style="font-size:1.1rem; color:var(--gold-light); margin-bottom:10px;">{{ i.her1_h3 }}</h3>
+        <p style="color:var(--muted); font-size:0.95rem; margin-bottom:18px;">{{ i.her1_p }}</p>
       </div>
       <div ref="{{ h2Ref }}" style="{{ h2Style }}">
-        <div style="display:inline-flex; gap:10px; align-items:center; border:1px solid var(--border); padding:8px 14px; border-radius:100px; font-size:0.8rem; color:var(--muted); margin-bottom:20px;">⚙️ Technology &amp; Engineering</div>
-        <h3 style="font-size:1.1rem; color:var(--gold-light); margin-bottom:10px;">Deep energy-tech &amp; software engineering</h3>
-        <p style="color:var(--muted); font-size:0.95rem; margin-bottom:18px;">ISO 9001 &amp; ISO 27001 certified engineering behind AMI rollouts, smart-city metering, workforce management platforms and CERT-In certified cybersecurity, deployed across 10M+ devices.</p>
+        <div style="display:inline-flex; gap:10px; align-items:center; border:1px solid var(--border); padding:8px 14px; border-radius:100px; font-size:0.8rem; color:var(--muted); margin-bottom:20px;">⚙️ {{ i.her2_badge }}</div>
+        <h3 style="font-size:1.1rem; color:var(--gold-light); margin-bottom:10px;">{{ i.her2_h3 }}</h3>
+        <p style="color:var(--muted); font-size:0.95rem; margin-bottom:18px;">{{ i.her2_p }}</p>
       </div>
     </div>
   </section>
@@ -239,9 +242,9 @@
   <section id="cta" style="position:relative; z-index:1; padding:90px 24px;">
     <div ref="{{ ctaRef }}" style="{{ ctaStyle }}">
       <div style="max-width:1180px; margin:0 auto; border-radius:26px; padding:60px 40px; text-align:center; background:linear-gradient(120deg, rgba(212,175,55,0.12), rgba(45,212,191,0.10)); border:1px solid var(--border);">
-        <h2 style="font-size:clamp(1.6rem,3vw,2.1rem); margin-bottom:14px; font-weight:800;">Building the next generation of national infrastructure?</h2>
-        <p style="color:var(--muted); margin-bottom:30px;">Let's discuss energy, metering, workforce, port, mining, tokenization or banking deployments at scale.</p>
-        <a href="#contact" style="padding:13px 28px; border-radius:100px; font-weight:600; font-size:0.95rem; display:inline-block; background:linear-gradient(135deg, var(--gold), var(--gold-light)); color:var(--navy-950); box-shadow:0 8px 30px rgba(212,175,55,0.25);">Start a Conversation</a>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.1rem); margin-bottom:14px; font-weight:800;">{{ i.cta_h2 }}</h2>
+        <p style="color:var(--muted); margin-bottom:30px;">{{ i.cta_p }}</p>
+        <a href="#contact" style="padding:13px 28px; border-radius:100px; font-weight:600; font-size:0.95rem; display:inline-block; background:linear-gradient(135deg, var(--gold), var(--gold-light)); color:var(--navy-950); box-shadow:0 8px 30px rgba(212,175,55,0.25);">{{ i.cta_btn }}</a>
       </div>
     </div>
   </section>
@@ -253,25 +256,25 @@
           <div style="width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg, var(--gold), var(--teal)); display:flex; align-items:center; justify-content:center; font-size:1rem; color:var(--navy-950); font-weight:800; box-shadow:0 0 22px rgba(45,212,191,0.35);">PS</div>
           <div><b style="background:linear-gradient(100deg, var(--gold-light), var(--teal-light)); -webkit-background-clip:text; background-clip:text; color:transparent;">PromaxSolveEasy</b></div>
         </div>
-        <p style="color:var(--muted); font-size:0.9rem; margin-bottom:8px;">PromaxSolveEasy is a UAE-headquartered infrastructure, energy and financial-technology group delivering integrated solutions across energy, metering, workforce systems, ports, mining, tokenization and banking at country scale.</p>
+        <p style="color:var(--muted); font-size:0.9rem; margin-bottom:8px;">{{ i.foot_desc }}</p>
       </div>
       <div>
-        <h4 style="font-size:0.85rem; text-transform:uppercase; letter-spacing:1px; color:var(--muted-2); margin-bottom:16px;">Head Office</h4>
-        <p style="color:var(--muted); font-size:0.9rem; margin-bottom:8px;">P.O. Box 54300, Abu Dhabi<br/>United Arab Emirates</p>
-        <p style="color:var(--muted); font-size:0.9rem; margin-bottom:8px;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4129242d2d2e0131332e2c2039322e2d3724242032386f222e2c">[email&#160;protected]</a><br/>+971 56 601 0848</p>
+        <h4 style="font-size:0.85rem; text-transform:uppercase; letter-spacing:1px; color:var(--muted-2); margin-bottom:16px;">{{ i.foot_office_h4 }}</h4>
+        <p style="color:var(--muted); font-size:0.9rem; margin-bottom:8px;">{{ i.foot_office_addr1 }}<br/>{{ i.foot_office_addr2 }}</p>
+        <p style="color:var(--muted); font-size:0.9rem; margin-bottom:8px;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2048454c4c4f6050524f4d4158534f4c5645454153590e434f4d">[email&#160;protected]</a><br/>+971 56 601 0848</p>
       </div>
       <div>
-        <h4 style="font-size:0.85rem; text-transform:uppercase; letter-spacing:1px; color:var(--muted-2); margin-bottom:16px;">Company</h4>
+        <h4 style="font-size:0.85rem; text-transform:uppercase; letter-spacing:1px; color:var(--muted-2); margin-bottom:16px;">{{ i.foot_company_h4 }}</h4>
         <ul style="list-style:none; margin:0; padding:0;">
-          <li style="margin-bottom:8px;"><a href="#solutions" style="color:var(--muted); font-size:0.9rem;" style-hover="{{ footLinkHover }}">Our Verticals</a></li>
-          <li style="margin-bottom:8px;"><a href="#heritage" style="color:var(--muted); font-size:0.9rem;" style-hover="{{ footLinkHover }}">About Us</a></li>
-          <li style="margin-bottom:8px;"><a href="/cdn-cgi/l/email-protection#741c1118181b3404061b19150c071b1802111115070d5a171b19" style="color:var(--muted); font-size:0.9rem;" style-hover="{{ footLinkHover }}"><span class="__cf_email__" data-cfemail="d3bbb6bfbfbc93a3a1bcbeb2aba0bcbfa5b6b6b2a0aafdb0bcbe">[email&#160;protected]</span></a></li>
+          <li style="margin-bottom:8px;"><a href="#solutions" style="color:var(--muted); font-size:0.9rem;" style-hover="{{ footLinkHover }}">{{ i.foot_link1 }}</a></li>
+          <li style="margin-bottom:8px;"><a href="#heritage" style="color:var(--muted); font-size:0.9rem;" style-hover="{{ footLinkHover }}">{{ i.foot_link2 }}</a></li>
+          <li style="margin-bottom:8px;"><a href="/cdn-cgi/l/email-protection#92faf7fefefdd2e2e0fdfff3eae1fdfee4f7f7f3e1ebbcf1fdff" style="color:var(--muted); font-size:0.9rem;" style-hover="{{ footLinkHover }}"><span class="__cf_email__" data-cfemail="264e434a4a49665654494b475e55494a50434347555f0845494b">[email&#160;protected]</span></a></li>
         </ul>
       </div>
     </div>
     <div style="max-width:1180px; margin:0 auto; padding-top:24px; border-top:1px solid var(--border); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; color:var(--muted-2); font-size:0.82rem;">
-      <span>© 2026 PromaxSolveEasy. All rights reserved.</span>
-      <span>Energy · Smart Metering · Workforce Systems · Ports &amp; Fishery · Mining · RWA Tokenization · Banking</span>
+      <span>{{ i.foot_copy }}</span>
+      <span>{{ i.foot_tagline }}</span>
     </div>
   </footer>
 
@@ -280,9 +283,85 @@
 </x-dc>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { scrolled: false, visible: {} };
+  getTranslations() {
+    return {
+    en: {
+      nav_solutions: 'Solutions', nav_about: 'About', nav_contact: 'Contact', nav_cta: 'Talk to Us',
+      hero_eyebrow: 'Headquartered in Abu Dhabi, United Arab Emirates',
+      hero_h1_pre: 'Country-scale infrastructure, energy &', hero_h1_accent: 'financial technology',
+      hero_h1_post: ', engineered as one platform',
+      hero_sub: 'Backed by a global capital network and deep energy & technology engineering expertise, we deliver seven critical infrastructure verticals at national scale — from the UAE to the world.',
+      hero_cta_primary: 'Explore Our Verticals', hero_cta_ghost: 'Partner With Us',
+      stat1_label: 'Sovereign asset network access', stat2_label: 'Combined renewable energy experience (yrs)',
+      stat3_label: 'Smart devices & meters deployed', stat4_label: 'Integrated infrastructure verticals',
+      sol_tag: 'What We Build', sol_h2: 'Seven verticals. One integrated infrastructure stack.',
+      sol_p: 'Each vertical is built and operated by our in-house infrastructure, capital and technology teams.',
+      card1_title: 'Energy & Battery Storage', card1_desc: 'Utility-scale battery storage, renewable integration and grid-balancing systems for national energy resilience.',
+      card2_title: 'Smart Meters & Software', card2_desc: 'AMI rollouts, meter data management, consumer indexing and real-time analytics platforms for utilities.',
+      card3_title: 'Workforce & Ticketing Systems', card3_desc: 'Field-force scheduling, dispatch and ticket-resolution platforms built to manage country-scale infrastructure teams.',
+      card4_title: 'Fishery, Ports & Logistics', card4_desc: 'Port operations, fleet & catch management, and maritime logistics tooling for coastal and inland waterway economies.',
+      card5_title: 'Mining & Rare Earth Minerals', card5_desc: 'Exploration-to-export infrastructure, extraction technology partnerships and supply-chain financing for critical minerals.',
+      card6_title: 'Real World Asset Tokenization', card6_desc: 'Blockchain-based structuring and issuance of tokenized real estate, commodities and infrastructure assets.',
+      card7_title: 'Banking Solutions', card7_desc: 'Core banking, digital payments and embedded-finance infrastructure for underserved and emerging markets.',
+      her_tag: 'Why PromaxSolveEasy', her_h2: 'One company. Global reach, ground-level execution.',
+      her_p: 'Sovereign-scale capital and global infrastructure relationships, paired with hands-on energy and software engineering — under one roof.',
+      her1_badge: 'Global Capital & Infrastructure', her1_h3: 'Global capital & infrastructure network',
+      her1_p: 'Access to sovereign asset relationships, a 54+ location worldwide network, and 50+ years of combined experience across energy, agriculture & fisheries, logistics, security and capital markets.',
+      her2_badge: 'Technology & Engineering', her2_h3: 'Deep energy-tech & software engineering',
+      her2_p: 'ISO 9001 & ISO 27001 certified engineering behind AMI rollouts, smart-city metering, workforce management platforms and CERT-In certified cybersecurity, deployed across 10M+ devices.',
+      cta_h2: 'Building the next generation of national infrastructure?',
+      cta_p: 'Let\u2019s discuss energy, metering, workforce, port, mining, tokenization or banking deployments at scale.',
+      cta_btn: 'Start a Conversation',
+      foot_desc: 'PromaxSolveEasy is a UAE-headquartered infrastructure, energy and financial-technology group delivering integrated solutions across energy, metering, workforce systems, ports, mining, tokenization and banking at country scale.',
+      foot_office_h4: 'Head Office', foot_office_addr1: 'P.O. Box 54300, Abu Dhabi', foot_office_addr2: 'United Arab Emirates',
+      foot_company_h4: 'Company', foot_link1: 'Our Verticals', foot_link2: 'About Us',
+      foot_copy: '\u00A9 2026 PromaxSolveEasy. All rights reserved.',
+      foot_tagline: 'Energy · Smart Metering · Workforce Systems · Ports & Fishery · Mining · RWA Tokenization · Banking'
+    },
+    ar: {
+      nav_solutions: 'الحلول', nav_about: 'من نحن', nav_contact: 'تواصل معنا', nav_cta: 'تحدث إلينا',
+      hero_eyebrow: 'مقرها الرئيسي في أبوظبي، الإمارات العربية المتحدة',
+      hero_h1_pre: 'بنية تحتية وطاقة على المستوى الوطني، إلى جانب', hero_h1_accent: ' التكنولوجيا المالية',
+      hero_h1_post: '، بمنصة واحدة متكاملة',
+      hero_sub: 'بدعم من شبكة رأس مال عالمية وخبرة هندسية عميقة في الطاقة والتكنولوجيا، نقدّم سبعة قطاعات بنية تحتية حيوية على المستوى الوطني — من الإمارات إلى العالم.',
+      hero_cta_primary: 'استكشف قطاعاتنا', hero_cta_ghost: 'كن شريكاً لنا',
+      stat1_label: 'الوصول إلى شبكة الأصول السيادية', stat2_label: 'سنوات الخبرة المجمعة في الطاقة المتجددة',
+      stat3_label: 'أجهزة وعدادات ذكية منشورة', stat4_label: 'قطاعات بنية تحتية متكاملة',
+      sol_tag: 'ما الذي نبنيه', sol_h2: 'سبعة قطاعات. منظومة بنية تحتية واحدة متكاملة.',
+      sol_p: 'يتم بناء وتشغيل كل قطاع من قبل فرقنا الداخلية المتخصصة في البنية التحتية ورأس المال والتكنولوجيا.',
+      card1_title: 'الطاقة وتخزين البطاريات', card1_desc: 'أنظمة تخزين طاقة بالبطاريات على نطاق المرافق، ودمج الطاقة المتجددة، وأنظمة موازنة الشبكة لتعزيز مرونة الطاقة الوطنية.',
+      card2_title: 'العدادات الذكية والبرمجيات', card2_desc: 'نشر أنظمة القياس المتقدم، وإدارة بيانات العدادات، وفهرسة المستهلكين، ومنصات التحليل الفوري للمرافق.',
+      card3_title: 'إدارة القوى العاملة وأنظمة التذاكر', card3_desc: 'منصات جدولة الفرق الميدانية والإرسال وحل التذاكر، مصممة لإدارة فرق البنية التحتية على المستوى الوطني.',
+      card4_title: 'مصايد الأسماك والموانئ والخدمات اللوجستية', card4_desc: 'عمليات الموانئ، وإدارة الأساطيل والمصيد، وأدوات الخدمات اللوجستية البحرية للاقتصادات الساحلية والداخلية.',
+      card5_title: 'التعدين والمعادن الأرضية النادرة', card5_desc: 'بنية تحتية من الاستكشاف إلى التصدير، وشراكات تقنيات الاستخراج، وتمويل سلاسل الإمداد للمعادن الحيوية.',
+      card6_title: 'ترميز الأصول الواقعية', card6_desc: 'هيكلة وإصدار قائم على تقنية البلوك تشين للعقارات والسلع والأصول البنيوية المرمّزة.',
+      card7_title: 'الحلول المصرفية', card7_desc: 'الخدمات المصرفية الأساسية، والمدفوعات الرقمية، والبنية التحتية للتمويل المدمج للأسواق الناشئة وغير المخدومة.',
+      her_tag: 'لماذا بروماكس سولف إيزي', her_h2: 'شركة واحدة. حضور عالمي وتنفيذ ميداني.',
+      her_p: 'رأس مال بحجم سيادي وعلاقات بنية تحتية عالمية، إلى جانب هندسة عملية في الطاقة والبرمجيات — تحت سقف واحد.',
+      her1_badge: 'رأس المال العالمي والبنية التحتية', her1_h3: 'شبكة عالمية لرأس المال والبنية التحتية',
+      her1_p: 'وصول إلى علاقات الأصول السيادية، وشبكة عالمية تضم أكثر من 54 موقعاً، وأكثر من 50 عاماً من الخبرة المجمعة في الطاقة والزراعة ومصايد الأسماك والخدمات اللوجستية والأمن وأسواق رأس المال.',
+      her2_badge: 'التكنولوجيا والهندسة', her2_h3: 'هندسة عميقة في تقنيات الطاقة والبرمجيات',
+      her2_p: 'هندسة معتمدة وفق ISO 9001 وISO 27001 تقف خلف نشر أنظمة القياس المتقدم، وعدادات المدن الذكية، ومنصات إدارة القوى العاملة، وأمن سيبراني معتمد من CERT-In، منتشرة عبر أكثر من 10 ملايين جهاز.',
+      cta_h2: 'هل تبني الجيل القادم من البنية التحتية الوطنية؟',
+      cta_p: 'لنتحدث حول نشر حلول الطاقة والعدادات والقوى العاملة والموانئ والتعدين والترميز أو الخدمات المصرفية على نطاق واسع.',
+      cta_btn: 'ابدأ محادثة',
+      foot_desc: 'بروماكس سولف إيزي مجموعة مقرها الإمارات العربية المتحدة متخصصة في البنية التحتية والطاقة والتكنولوجيا المالية، تقدّم حلولاً متكاملة عبر الطاقة والعدادات وأنظمة القوى العاملة والموانئ والتعدين والترميز والخدمات المصرفية على مستوى الدولة.',
+      foot_office_h4: 'المكتب الرئيسي', foot_office_addr1: 'صندوق بريد 54300، أبوظبي', foot_office_addr2: 'الإمارات العربية المتحدة',
+      foot_company_h4: 'الشركة', foot_link1: 'قطاعاتنا', foot_link2: 'من نحن',
+      foot_copy: '© 2026 بروماكس سولف إيزي. جميع الحقوق محفوظة.',
+      foot_tagline: 'الطاقة · العدادات الذكية · أنظمة القوى العاملة · الموانئ ومصايد الأسماك · التعدين · ترميز الأصول · الخدمات المصرفية'
+      }
+    };
+  }
+
+  state = { scrolled: false, visible: {}, lang: 'en' };
 
   componentDidMount() {
+    try {
+      const nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+      if (nav.startsWith('ar')) this.setState({ lang: 'ar' });
+    } catch (e) {}
+
     this.onScroll = () => {
       const s = window.scrollY > 10;
       if (s !== this.state.scrolled) this.setState({ scrolled: s });
@@ -332,7 +411,18 @@ class Component extends DCLogic {
 
   renderVals() {
     const scrolled = this.state.scrolled;
+    const lang = this.state.lang;
+    const isAr = lang === 'ar';
+    const i = this.getTranslations()[lang];
+
     return {
+      i,
+      dir: isAr ? 'rtl' : 'ltr',
+      numSide: isAr ? 'left' : 'right',
+      langBtnLabel: isAr ? 'EN' : 'AR',
+      toggleLang: () => this.setState({ lang: isAr ? 'en' : 'ar' }),
+      langBtnHover: { color: '#eef2f7', borderColor: 'rgba(45,212,191,0.4)' },
+
       headerStyle: {
         position: 'sticky', top: 0, zIndex: 50,
         background: scrolled ? 'rgba(6,13,26,0.97)' : 'rgba(6,13,26,0.8)',
