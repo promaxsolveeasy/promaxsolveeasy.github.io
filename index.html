@@ -3,8 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8JVF72DBGT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8JVF72DBGT');
+</script>
+
 <title>PromaxSolveEasy — UAE Infrastructure, Energy & Financial Technology Group</title>
-<meta name="description" content="PromaxSolveEasy is a UAE-headquartered infrastructure, energy and financial-technology group delivering energy storage, smart metering, workforce management, port & fishery systems, mining tech, asset tokenization and banking solutions at country scale.">
+<link rel="icon" type="image/png" href="psicon.png">
+<meta name="description" content="Promax SolveEasy is a UAE-headquartered infrastructure, energy and financial-technology group delivering energy storage, smart metering, workforce management, port & fishery systems, mining tech, asset tokenization and banking solutions at country scale.">
 <style>
   :root{
     --navy-950:#060d1a; --navy-900:#0a1628; --navy-800:#0f2038; --navy-700:#132743; --navy-600:#1b3a5c;
@@ -30,12 +41,26 @@
   @keyframes float1{ 0%,100%{transform:translate(0,0);} 50%{transform:translate(-40px,50px);} }
   @keyframes float2{ 0%,100%{transform:translate(0,0);} 50%{transform:translate(40px,-40px);} }
 
-  header{ position:sticky; top:0; z-index:50; background:rgba(6,13,26,0.8); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--border); transition:background .3s ease, box-shadow .3s ease; }
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(6,13,26,0.92);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+    transform:translateZ(0);
+    isolation:isolate;
+    contain:layout paint style;
+  }
+  .logo{ display:flex; align-items:center; gap:10px; }
+  .brand-logo{
+    height:52px; width:auto; display:block;
+    filter:drop-shadow(0 0 12px rgba(46,157,120,0.25));
+  }
+  footer .brand-logo{ height:76px; margin-bottom:6px; }
+  border-bottom:1px solid var(--border); transition:background .3s ease, box-shadow .3s ease; }
   header.scrolled{ background:rgba(6,13,26,0.97); box-shadow:0 8px 30px rgba(0,0,0,0.35); }
   nav{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px 24px; padding:16px 24px; max-width:1180px; margin:0 auto; transition:padding .3s ease; }
   header.scrolled nav{ padding:10px 24px; }
-  .logo{ display:flex; align-items:center; gap:10px; font-weight:700; font-size:1.15rem; letter-spacing:0.3px;}
   .logo .mark{ width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg, var(--gold), var(--teal));
     display:flex; align-items:center; justify-content:center; font-size:1rem; color:var(--navy-950); font-weight:800; box-shadow:0 0 22px rgba(45,212,191,0.35); }
   .logo .word{ background:linear-gradient(100deg, var(--gold-light), var(--teal-light)); -webkit-background-clip:text; background-clip:text; color:transparent; }
@@ -145,8 +170,7 @@
 <header id="siteHeader">
   <nav>
     <div class="logo">
-      <div class="mark">PS</div>
-      <div><b class="word">PromaxSolveEasy</b></div>
+      <img class="brand-logo" src="pslogo.png" alt="PromaxSolveEasy">
     </div>
     <ul>
       <li><a href="#solutions" data-i="nav_solutions">Solutions</a></li>
@@ -329,8 +353,7 @@
   <div class="foot-grid">
     <div>
       <div class="logo" style="margin-bottom:14px;">
-        <div class="mark">PS</div>
-        <div><b class="word">PromaxSolveEasy</b></div>
+        <img class="brand-logo" src="pslogo.png" alt="PromaxSolveEasy">
       </div>
       <p data-i="foot_desc">PromaxSolveEasy is a UAE-headquartered infrastructure, energy and financial-technology group delivering integrated solutions across energy, metering, workforce systems, ports, mining, tokenization and banking at country scale.</p>
     </div>
